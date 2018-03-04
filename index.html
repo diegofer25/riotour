@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- My Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/cdee3ca890.js"></script>
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <!-- Bootstrap Js CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Rio Tour</title>
+</head>
+
+<body>
+
+
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <div class="main sticky">
+            <div class="sticky">
+                <button type="button" id="sidebarCollapse" class="btn btn-secondary">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav id="sidebar">
+                    <div class="sidebar-header text-center">
+                        <p>
+                            <img src="img/riotour-logo.png" width="100px"/> Rio Tour</p>
+                    </div>
+
+                    <ul class="list-unstyled components pr-2">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-binoculars"></i> Pontos Turísticos</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sun-o" aria-hidden="true"></i> Praias</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-cutlery" aria-hidden="true"></i> Bares e Restaurantes</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-bed"></i> Hoteis</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Eventos</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-male"></i>
+                                <i class="fa fa-female"></i> Banheiros</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-shield"></i>
+                                </i> Delegacias</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-hospital-o"></i> Hospitais</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- Page Content Holder -->
+        <div>
+            <div id="content" class="container col-12">
+                <section>
+                    <div class="image" data-type="background" data-speed="2"></div>
+                    <div class="stuff" data-type="content">
+                        <h1><img src="img/riotour-logo.png" width="150px"/> Rio Tour</h1>
+                        <p>O seu guia virtual de turismo no Rio de Janeiro</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="7"></div>
+                    <div class="stuff" data-type="content">
+                        <h2>Pontos Turísticos</h2>
+                        <p>
+                            Aproveite os pontos turísticos do Rio, a gente te ajuda a encontrar os melhores!
+                        </p>
+                        <button class="btn btn-primary">Ver detalhes</button>
+                    </div>
+                </section>
+
+                <section>
+                    
+                    <div class="image" data-type="background" data-speed="6"></div>
+                    <div class="stuff" data-type="content">
+                        <h2>Praias</h2>
+                        <p>Afim de curtir as praias do Rio de Janeiro? Clique </p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="5"></div>
+                    <div class="stuff" data-type="content">
+                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
+                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
+                            explicabo amet neque aut.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="3"></div>
+                    <div class="stuff" data-type="content">
+                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
+                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
+                            explicabo amet neque aut.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="3"></div>
+                    <div class="stuff" data-type="content">
+                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
+                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
+                            explicabo amet neque aut.</p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="at-twitter">
+                <a href="//twitter.com/hendrysadrak" target="_blank">@grischpel</a>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+        // makes the parallax elements
+        function parallaxIt() {
+
+            // create variables
+            var $fwindow = $(window);
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // on window scroll event
+            $fwindow.on('scroll resize', function () {
+                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            });
+
+            // for each of content parallax element
+            $('[data-type="content"]').each(function (index, e) {
+                var $contentObj = $(this);
+                var fgOffset = parseInt($contentObj.offset().top);
+                var yPos;
+                var speed = ($contentObj.data('speed') || 1);
+
+                $fwindow.on('scroll resize', function () {
+                    yPos = fgOffset - scrollTop / speed;
+
+                    $contentObj.css('top', yPos);
+                });
+            });
+
+            // for each of background parallax element
+            $('[data-type="background"]').each(function () {
+                var $backgroundObj = $(this);
+                var bgOffset = parseInt($backgroundObj.offset().top);
+                var yPos;
+                var coords;
+                var speed = ($backgroundObj.data('speed') || 0);
+
+                $fwindow.on('scroll resize', function () {
+                    yPos = - ((scrollTop - bgOffset) / speed);
+                    coords = '40% ' + yPos + 'px';
+
+                    $backgroundObj.css({ backgroundPosition: coords });
+                });
+            });
+
+            // triggers winodw scroll for refresh
+            $fwindow.trigger('scroll');
+        };
+
+        parallaxIt();
+    </script>
+</body>
+
+</html>
