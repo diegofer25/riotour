@@ -1,6 +1,7 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 body {
-    background: rgb(41, 41, 41);
+    background-color: rgba(0, 0, 0, 0.8);
+    background: url(../img/sidebg.jpg) 0.5;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -228,6 +229,18 @@ ul ul a {
 
 .container section:nth-child(6) .image {
     background-image: url(../img/eventos.jpg);
+}
+
+.container section:nth-child(7) .image {
+    background-image: url(../img/policia.jpg);
+}
+
+.container section:nth-child(8) .image {
+    background-image: url(../img/hospital.jpg);
+}
+
+.container section:nth-child(9) .image {
+    background-image: url(../img/banheiros.jpg);
 }
 
 .container section .image {
