@@ -19,9 +19,6 @@
 </head>
 
 <body>
-
-
-
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <div class="main sticky">
@@ -33,8 +30,10 @@
                 </button>
                 <nav id="sidebar">
                     <div class="sidebar-header text-center">
-                        <p>
-                            <img src="img/riotour-logo.png" width="100px" /> Rio Tour</p>
+                        <a href="#index">
+                            <p>
+                                <img src="img/riotour-logo.png" width="100px" /> Rio Tour</p>
+                        </a>
                     </div>
 
                     <ul class="list-unstyled components pr-2">
@@ -79,11 +78,12 @@
         <!-- Page Content Holder -->
         <div>
             <div id="content" class="container col-12">
+
                 <section>
                     <div class="image" data-type="background" data-speed="2"></div>
                     <div class="stuff" data-type="content">
                         <h1>
-                            <img src="img/riotour-logo.png" width="150px" /> Rio Tour</h1>
+                            <img id="index" src="img/riotour-logo.png" width="150px" /> Rio Tour</h1>
                         <p>O seu guia virtual de turismo no Rio de Janeiro</p>
                     </div>
                 </section>
@@ -95,7 +95,7 @@
                         <p>
                             Aproveite os pontos turísticos do Rio, a gente te ajuda a encontrar os melhores!
                         </p>
-                        <button class="btn btn-primary">Usar Serviço</button>
+                        <button class="btn btn-primary">Ver detalhes</button>
                     </div>
                 </section>
 
@@ -104,98 +104,74 @@
                     <div class="stuff" data-type="content">
                         <h2>Praias</h2>
                         <p>Afim de curtir as praias do Rio de Janeiro? Confira as melhores opções próximas a você</p>
-                        <button class="btn btn-primary">Usar Serviço</button>
+                        <button class="btn btn-primary">Ver detalhes</button>
                     </div>
                 </section>
 
                 <section>
                     <div class="image" data-type="background" data-speed="5"></div>
                     <div class="stuff" data-type="content">
-                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
-                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
-                            explicabo amet neque aut.</p>
+                        <h2>Bares e Restaurantes</h2>
+                        <p>Um lugar com qualidade para comer? É pra já! Confira os restaurantes mais bem avaliados</p>
+                        <button class="btn btn-primary">Ver detalhes</button>
                     </div>
                 </section>
 
                 <section>
                     <div class="image" data-type="background" data-speed="3"></div>
                     <div class="stuff" data-type="content">
-                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
-                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
-                            explicabo amet neque aut.</p>
+                        <h2>Hoteis</h2>
+                        <p>Hoteis para todos os gostos e todos os gostos, entre em contato com os hotéis e faça uma reserva
+                            já!
+                        </p>
+                        <button class="btn btn-primary">Ver detalhes</button>
                     </div>
                 </section>
 
                 <section>
                     <div class="image" data-type="background" data-speed="3"></div>
                     <div class="stuff" data-type="content">
-                        <p>Accusamus at ex amet perferendis atque fuga, ad earum, ipsa perspiciatis, dolore neque, accusantium
-                            consectetur quis voluptatibus culpa architecto animi natus facere expedita sed. Voluptatem odit
-                            explicabo amet neque aut.</p>
+                        <h2>Eventos</h2>
+                        <p>Shows, teatros e outros eventos pela cidade, localize os eventos que mais combina com você e compre
+                            os ingressos!</p>
+                        <button class="btn btn-primary">Ver detalhes</button>
                     </div>
                 </section>
-            </div>
 
-            <div class="at-twitter">
-                <a href="//twitter.com/hendrysadrak" target="_blank">@grischpel</a>
+                <section>
+                    <div class="image" data-type="background" data-speed="3"></div>
+                    <div class="stuff" data-type="content">
+                        <h2>Delegacias</h2>
+                        <p>Shows, teatros e outros eventos pela cidade, localize os eventos que mais combina com você e compre
+                            os ingressos!</p>
+                        <button class="btn btn-primary">Ver detalhes</button>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="3"></div>
+                    <div class="stuff" data-type="content">
+                        <h2>Hospitais</h2>
+                        <p>Shows, teatros e outros eventos pela cidade, localize os eventos que mais combina com você e compre
+                            os ingressos!</p>
+                        <button class="btn btn-primary">Ver detalhes</button>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="image" data-type="background" data-speed="3"></div>
+                    <div class="stuff" data-type="content">
+                        <h2>Banheiros</h2>
+                        <p>Shows, teatros e outros eventos pela cidade, localize os eventos que mais combina com você e compre
+                            os ingressos!</p>
+                        <button class="btn btn-primary">Ver detalhes</button>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $(this).toggleClass('active');
-            });
-        });
-        // makes the parallax elements
-        function parallaxIt() {
-
-            // create variables
-            var $fwindow = $(window);
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-            // on window scroll event
-            $fwindow.on('scroll resize', function () {
-                scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            });
-
-            // for each of content parallax element
-            $('[data-type="content"]').each(function (index, e) {
-                var $contentObj = $(this);
-                var fgOffset = parseInt($contentObj.offset().top);
-                var yPos;
-                var speed = ($contentObj.data('speed') || 1);
-
-                $fwindow.on('scroll resize', function () {
-                    yPos = fgOffset - scrollTop / speed;
-
-                    $contentObj.css('top', yPos);
-                });
-            });
-
-            // for each of background parallax element
-            $('[data-type="background"]').each(function () {
-                var $backgroundObj = $(this);
-                var bgOffset = parseInt($backgroundObj.offset().top);
-                var yPos;
-                var coords;
-                var speed = ($backgroundObj.data('speed') || 0);
-
-                $fwindow.on('scroll resize', function () {
-                    yPos = - ((scrollTop - bgOffset) / speed);
-                    coords = '40% ' + yPos + 'px';
-
-                    $backgroundObj.css({ backgroundPosition: coords });
-                });
-            });
-
-            // triggers winodw scroll for refresh
-            $fwindow.trigger('scroll');
-        };
-
-        parallaxIt();
-    </script>
 </body>
+
+<script src="js/style.js"></script>
 
 </html>
