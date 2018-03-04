@@ -106,8 +106,8 @@ a, a:hover, a:focus {
 }
 
 #sidebar ul li a:hover {
-    color: rgb(0, 0, 0);
-    background: #fff;
+    color: rgb(255, 255, 255);
+    background: #d35400;
 }
 
 #sidebar ul li.active>a, a[aria-expanded="true"] {
@@ -215,7 +215,7 @@ ul ul a {
 }
 
 .container section:nth-child(3) .image {
-    background-image: url(https://images.unsplash.com/photo-1461770354136-8f58567b617a?iq=100&fm=jpg&w=1000);
+    background-image: url(../img/praias.jpg);
 }
 
 .container section:nth-child(4) .image {
