@@ -1,0 +1,167 @@
+<script>
+    $(document).ready(function() {
+        $('select').material_select();
+        $('.collapsible').collapsible();
+        $(".button-collapse").sideNav();
+    });
+</script>
+<div ng-controller="PlacesController as Places">
+    <pre ng-init="places"></pre>
+    <header>
+        <nav class="teal darken-1">
+            <div class="nav-wrapper">
+                <button data-activates="slide-out" class="left btn waves-effect waves-light button-collapse">
+                    <i class="material-icons">menu</i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <ul id="slide-out" class="side-nav">
+        <li class="center-align">
+            <span>Bem Vindo</span>
+        </li>
+    </ul>
+    <div class="row">
+        <form class="col s12 m10 l4 offset-l4 offset-m1">
+            <h3 class="center-align">Buscar Locais</h3>
+            <div class="row">
+                <div class="input-field col s6">
+                    <select ng-model="Places.form.placeSearch">
+                        <option value="" selected>O que procura?</option>
+                        <option value="subway_station">Estação de Metrô</option>
+                        <option value="train_station">Estação de Trem</option>
+                        <option value="restaurant">Restaurantes</option>
+                        <option value="bar">Bares</option>
+                        <option value="police">Polícia</option>
+                        <option value="hospital">Hospitais</option>
+                        <option value="zoo">Zoologico</option>
+                    </select>
+                </div>
+                <div class="input-field col s6">
+                    <select ng-model="Places.form.orderBy">
+                        <option value="" selected>Ordenar Por</option>
+                        <option value="false">Relevância</option>
+                        <option value="true">Distância</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <p class="range-field col s12">Raio de busca (
+                    <span ng-bind="Places.form.radius"></span>m)
+                    <input type="range" ng-model="Places.form.radius" min="0" max="10000" />
+                </p>
+            </div>
+            <div class="row">
+                <div class="col s8 offset-s2">
+                    <div class="switch">
+                        <label>
+                            <input type="checkbox" ng-model="Places.form.isPhoto">
+                            <span class="lever"></span>Apenas locais com foto</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">textsms</i>
+                    <input type="text" ng-model="Places.form.placeName">
+                    <label>Lugares que contenham no texto...</label>
+                </div>
+            </div>
+            <button id="search" class="btn waves-effect waves-light" ng-click="Places.getPlaces(Places.form);places = Places.placeList">Buscar
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 cards-container">
+                <div class="card hoverable" ng-repeat="place in places">
+                    <div class="card-image waves-effect waves-block waves-light" ng-if="place.photos">
+                        <img src="{{place.photos[0].getUrl({'maxWidth': 1024, 'maxHeight': 512})}}">
+                    </div>
+                    <div class="card-content white-text">
+                        <div class="row">
+                            <span class="card-title grey-text text-darken-4 activator">
+                                <strong>{{place.name}}</strong>{{place.rating ? place.rating : 'Não Avaliado'}}
+                                <i class="material-icons">star</i>
+                                <button class="btn btn-floating right pulse">
+                                    <i class="material-icons right">loupe</i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="row">
+                            <p>
+                                <a class="btn col s4 offset-s1 center-align tooltipped" href="{{place.url}}" target="_blank" data-position="top" data-delay="50"
+                                data-tooltip="Ver no mapa">
+                                    <i class="material-icons">map</i>
+                                </a>
+                                <a ng-if="place.website" class="btn col s4 offset-s2 center-align tooltipped" href="{{place.website}}" target="_blank" data-position="top"
+                                data-delay="50" data-tooltip="Visite o site">
+                                    <i class="material-icons">public</i>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">
+                            <strong>{{place.name}}</strong>-
+                            <i class="material-icons">star</i>{{place.rating ? place.rating : '-'}}
+                            <a class="btn btn-floating right pulse">
+                                <i class="material-icons right">close</i>
+                            </a>
+                        </span>
+                        <div class="center-align">Endereço:
+                            <span ng-bind="place.vicinity"></span>
+                            <br>Telefone:
+                            <span ng-bind="place.formatted_phone_number ? place.formatted_phone_number : 'Não Informado'"></span>
+                            <br>Avaliação:
+                            <span ng-bind="place.rating ? place.rating : 'Não Avaliado'"></span>
+                            <div class="row">
+                                <a ng-if="place.url" class="btn s4 offset-s1 center-align" href="{{place.url}}" target="_blank">
+                                    <i class="material-icons">map</i>
+                                </a>
+                                <a ng-if="place.website" class="btn s4 offset-s2 center-align" href="{{place.website}}" target="_blank">
+                                    <i class="material-icons">public</i>
+                                </a>
+                            </div>
+                        </div>
+                        <p>
+                            <ul class="collapsible popout" data-collapsible="accordion">
+                                <li ng-repeat="(key, value) in place.reviews">
+                                    <div class="collapsible-header" ng-click="Places.open('open', value.author_name)">
+                                        <img width="50px" height="50px" src="{{value.profile_photo_url}}" />{{value.author_name}} deu nota:
+                                        <strong>{{value.rating}}</strong>
+                                    </div>
+                                    <div class="collapsible-body">
+                                        <span>
+                                            <p>{{value.text}}
+                                                <br>
+                                                <span class="right">{{value.relative_time_description}}</span>
+                                            </p>
+                                        </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="map"></div>
+    <footer class="page-footer teal darken-2">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Rio Tour</h5>
+                    <p class="grey-text text-lighten-4">O seu guia turístico</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright teal darken-3">
+            <div class="container">© 2018 Diego Lamarão
+                <img class="grey-text text-lighten-4 right" width="80px" src="img/riotour-logo.png" />
+            </div>
+        </div>
+    </footer>
+</div>

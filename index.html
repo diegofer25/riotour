@@ -5,178 +5,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- My Custom CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Font Awesome -->
-    <script src="https://use.fontawesome.com/cdee3ca890.js"></script>
-    <!-- jQuery CDN -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- Bootstrap Js CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- CONFIGS -->
+    <script type="text/javascript" src="js/config/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/config/materialize.min.js"></script>
+    <script type="text/javascript" src="js/config/angular.min.js"></script>
+    <script type="text/javascript" src="js/config/angular-route.js"></script>
+    <script type="text/javascript" src="js/config/angular-animate.js"></script>
+    <script type="text/javascript" src="js/config/google-places.js"></script>
+    <!-- APP.JS -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/LoginController.js"></script>
+    <script type="text/javascript" src="js/PlacesController.js"></script>
+    <script type="text/javascript" src="js/RegisterController.js"></script>
     <title>Rio Tour</title>
 </head>
 
-<body>
-    <div class="wrapper">
-        <!-- Sidebar Holder -->
-        <div class="main sticky">
-            <div class="sticky">
-                <button type="button" id="sidebarCollapse" class="btn btn-secondary">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <nav id="sidebar">
-                    <div class="sidebar-header text-center">
-                        <a href="#index">
-                            <p>
-                                <img src="img/riotour-logo.png" width="100px" /> Rio Tour</p>
-                        </a>
-                    </div>
-
-                    <ul class="list-unstyled components pr-2">
-                        <li>
-                            <a href="services.html">
-                                <i class="fa fa-binoculars"></i> Pontos Turísticos</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-sun-o" aria-hidden="true"></i> Praias</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-cutlery" aria-hidden="true"></i> Bares e Restaurantes</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-bed"></i> Hoteis</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Eventos</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-shield"></i>
-                                </i> Delegacias</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-hospital-o"></i> Hospitais</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-male"></i>
-                                <i class="fa fa-female"></i> Banheiros</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <!-- Page Content Holder -->
-        <div id="content" class="container col-12">
-            <section>
-                <div class="image" data-type="background" data-speed="2"></div>
-                <div class="stuff" data-type="content">
-                    <h1>
-                        <img id="index" src="img/riotour-logo.png" width="150px" /> Rio Tour</h1>
-                    <p>O seu guia virtual de turismo no Rio de Janeiro</p>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="7"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Pontos Turísticos</h2>
-                    <p>
-                        Aproveite os pontos turísticos do Rio, a gente te ajuda a encontrar os melhores!
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="6"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Praias</h2>
-                    <p>Afim de curtir as praias do Rio de Janeiro? Confira as melhores opções próximas a você</p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="5"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Bares e Restaurantes</h2>
-                    <p>Um lugar com qualidade para comer? É pra já! Confira os restaurantes mais bem avaliados</p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="3"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Hoteis</h2>
-                    <p>Hoteis para todos os gostos e todos os gostos, entre em contato com os hotéis e faça uma reserva já!
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="3"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Eventos</h2>
-                    <p>Shows, teatros e outros eventos pela cidade, localize os eventos que mais combina com você e compre os
-                        ingressos!
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="3"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Delegacias</h2>
-                    <p>Precisa de uma delegacia? Nós te mostramos as mais próximas a você!
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="3"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Hospitais</h2>
-                    <p>Aconteceu um imprevisto e precisa de uma atendimento médico? Saiba onde encontrar os hospitais próximos
-                        a sua localização.
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-
-            <section>
-                <div class="image" data-type="background" data-speed="3"></div>
-                <div class="stuff" data-type="content">
-                    <h2>Banheiros</h2>
-                    <p>Longe de casa e apertado(a) para ir ao banheiros? Nós te ajudamos! Veja aqui os banheiros públicos mais
-                        próximos.
-                    </p>
-                    <button class="btn btn-primary">Ver detalhes</button>
-                </div>
-            </section>
-        </div>
-    </div>
-
+<body ng-app="app">
+    
+    <ng-view></ng-view>
+    
 </body>
-
-<!-- JS Effects -->
-<script src="js/style.js"></script>
-<!-- AngularJS -->
-<script src="js/angular.js"></script>
-<!-- IndexController -->
-<script src="js/IndexController.js"></script>
 
 </html>

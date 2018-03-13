@@ -1,0 +1,48 @@
+<div class="bg" ng-controller="LoginController as Login">
+    <div class="fade">
+            <center>
+                <div class="section"></div>
+                <img width="200px" src="img/riotour-logo.png" />
+                <span class="white-text">Rio Tour</span>
+                <div class="section"></div>
+                <div class="container">
+                    <div class="panel z-depth-1 grey lighten-4 row">
+                        <form class="col s12">    
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='email' ng-model="Login.form.email"/>
+                                    <label for='email'>Digite seu e-mail</label>
+                                </div>
+                            </div>
+
+                            <div class='row'>
+                                <div class='input-field col s12'>
+                                    <input class='validate' type='password' ng-model="Login.form.senha" />
+                                    <label for='password'>Digite sua senha</label>
+                                </div>
+                                <label style='float: right;'>
+                                    <a class='pink-text' href='#!'>
+                                        <b>Esqueceu sua senha?</b>
+                                    </a>
+                                </label>
+                            </div>
+                            <br />
+                            <center>
+                                <div class='row'>
+                                    <button name='btn_login' class='col s6 offset-s3 btn waves-effect waves-light'
+                                        ng-click="Login.logar(Login.form)">Login</button>
+                                </div>
+                            </center>
+                        </form>
+                    </div>
+                </div>
+                <a class="white-text" href="https://riotour.azurewebsites.net/#!/register">Criar conta</a>
+                <div class="row">
+                </div>
+            </center>
+        <div class="row">
+            <div class="divider"></div>
+            <span class="white-text col s11 offset-s1">diego.lamarao@al.infnet.com &copy 2018</span>
+        </div>
+    </div>
+</div>
